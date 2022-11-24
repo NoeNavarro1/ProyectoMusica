@@ -34,7 +34,7 @@ public class ProyectoMusica_V2 {
             String linea;
             //mientras haya informacion en el archivo
             while ((linea = bufer.readLine()) != null) {
-                System.out.println("Linea de archivo " + linea);
+                System.out.println("Linea: " + linea);
             }
 
         } catch (Exception e) {
@@ -129,11 +129,11 @@ public class ProyectoMusica_V2 {
     }
     
     public static void eliminarArchivo(String name){
-        File archivo = null;
+        File archivo = new File ("C:\\Users\\Noena\\" + name + ".txt");
         if(archivo.delete()){
-            System.out.println("Archivo eliminado con exito");
+            System.out.println("Archivo eliminado " + archivo.getName());
         }else{
-            System.out.println("Error al eliminar archivo");
+            System.out.println("Error al eliminar archivo ");
         }
     }
 
@@ -174,7 +174,7 @@ public class ProyectoMusica_V2 {
             break;
             case 4: {
                 System.out.println("Archivo eliminado correctamente");
-                eliminarArchivo(entrada);
+                eliminarArchivo(fileName);
             }
             break;
             default:

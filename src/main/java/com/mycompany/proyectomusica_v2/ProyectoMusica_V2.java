@@ -24,7 +24,7 @@ public class ProyectoMusica_V2 {
         BufferedReader bufer = null;
         try {
             //creamos un apuntador al archivo físico
-            archivo = new File("C:\\Users\\Noena\\" + name);
+            archivo = new File("C:\\Users\\Noena\\" + name + ".txt");
             //abrimos el archivo para lectura
             fr = new FileReader(archivo);
             //configurar bufer para hacer la lectura
@@ -55,6 +55,7 @@ public class ProyectoMusica_V2 {
         }
 
     }
+
 
     public static void escribirArchivo(String name) {
         FileWriter archivo = null;
@@ -127,12 +128,12 @@ public class ProyectoMusica_V2 {
             }
         }
     }
-    
-    public static void eliminarArchivo(String name){
-        File archivo = new File ("C:\\Users\\Noena\\" + name + ".txt");
-        if(archivo.delete()){
+
+    public static void eliminarArchivo(String name) {
+        File archivo = new File("C:\\Users\\Noena\\" + name + ".txt");
+        if (archivo.delete()) {
             System.out.println("Archivo eliminado " + archivo.getName());
-        }else{
+        } else {
             System.out.println("Error al eliminar archivo ");
         }
     }
@@ -143,28 +144,27 @@ public class ProyectoMusica_V2 {
         String fileName;
         int opcion;
 
-        System.out.println("Programa que manupula archivos de texto");
+        System.out.println("Programa para escuchar canciones");
         System.out.println("--------------------------------------------");
         System.out.println("¿Que quieres hacer?");
-        System.out.println("1 -Leer un archivo de texto existente");
-        System.out.println("2 -Crear un archivo de texto");
-        System.out.println("3 -Editar un archivo de texto");
-        System.out.println("4 -Eliminar archivo de texto!!!!!");
+        System.out.println("1 -Seleccionar artista");
+        System.out.println("2 -Crear artista");
+        System.out.println("3 -Editar un artista");
+        System.out.println("4 -Eliminar un artista!!!!!");
         entrada = buferTeclado.readLine();
         opcion = Integer.parseInt(entrada);
-        System.out.println("Escribe el nombre del archivo");
-        entrada = buferTeclado.readLine();
         fileName = entrada;
         switch (opcion) {
             case 1: {
                 //Lectura de un archivo de texto
-                System.out.println("Lectura de un archivo existente");
-                System.out.println("Contenido del archivo: ");
-                leerArchivo(entrada);
+                System.out.println("Artistas: ");
+                Artistas.Artista(fileName);
+                System.out.println("Seleccionar artista:");
+                
             }
-            break;
+                break;
             case 2: {
-                System.out.println("Creacion de un archivo de texto");
+                System.out.println("Creacion de un artista");
                 escribirArchivo(fileName);
             }
             break;
@@ -173,7 +173,7 @@ public class ProyectoMusica_V2 {
             }
             break;
             case 4: {
-                System.out.println("Archivo eliminado correctamente");
+                System.out.println("Artista eliminado correctamente");
                 eliminarArchivo(fileName);
             }
             break;

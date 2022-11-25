@@ -8,6 +8,6 @@ package com.mycompany.proyectomusica_v2;
  *
  * @author Noena
  */
-public class Song {
+public class canciones {
     
 }
